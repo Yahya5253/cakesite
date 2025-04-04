@@ -29,3 +29,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .  # Your root folder where index.html exists
+          Add GitHub Actions for CI/CD
+
