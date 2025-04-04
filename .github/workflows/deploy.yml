@@ -1,0 +1,31 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - master  # Change this if your default branch is different
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # You can change this based on your needs
+
+      - name: Install Dependencies
+        run: npm install  # Skip this if you don’t use Node.js
+
+      - name: Build Website
+        run: echo "No build step required"  # Modify if you use a build system like Jekyll or Hugo
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .  # Your root folder where index.html exists
